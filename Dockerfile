@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # Expone el puerto en el que se ejecutará la aplicación
-EXPOSE 5173
+EXPOSE 5174
 
 # Inicia el servidor de desarrollo de Vite
 CMD ["npm", "run", "dev"]
