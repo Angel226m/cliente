@@ -1005,7 +1005,7 @@ const PaginaSobreNosotros = () => {
               className="col-span-2 row-span-2 relative rounded-xl overflow-hidden shadow-lg"
             >
               <img 
-                src="https://images.unsplash.com/photo-1564550974352-c7d93c939f53?ixlib=rb-4.0.3" 
+                src="https://lanzaroteofficial.com/wp-content/uploads/2024/07/b4f5d130-b547-4dff-b974-10e8f822dd66.jpeg" 
                 alt="Delfines nadando" 
                 className="w-full h-full object-cover"
               />
@@ -1023,7 +1023,7 @@ const PaginaSobreNosotros = () => {
               className="rounded-xl overflow-hidden shadow-lg"
             >
               <img 
-                src="https://images.unsplash.com/photo-1558551649-e6b9c8301187?ixlib=rb-4.0.3" 
+                src="https://www.carbonell-law.org/NuevoDiseno/ozonomio/revista143/Imagenes/misc%202.jpg" 
                 alt="Islas Ballestas" 
                 className="w-full h-full object-cover"
               />
@@ -1035,7 +1035,7 @@ const PaginaSobreNosotros = () => {
               className="rounded-xl overflow-hidden shadow-lg"
             >
               <img 
-                src="https://images.unsplash.com/photo-1596702876070-82cb3cf8cf19?ixlib=rb-4.0.3" 
+                src="https://islasballestas.net/wp-content/uploads/2023/09/tour-islas-ballestas-paracas.jpg" 
                 alt="Paseo en lancha" 
                 className="w-full h-full object-cover"
               />
@@ -1047,7 +1047,7 @@ const PaginaSobreNosotros = () => {
               className="rounded-xl overflow-hidden shadow-lg"
             >
               <img 
-                src="https://images.unsplash.com/photo-1621635574570-41dd5d4c19a9?ixlib=rb-4.0.3" 
+                src="https://images.trvl-media.com/lodging/19000000/18640000/18637500/18637491/c9464d89.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill" 
                 alt="Aves marinas" 
                 className="w-full h-full object-cover"
               />
@@ -1059,7 +1059,7 @@ const PaginaSobreNosotros = () => {
               className="rounded-xl overflow-hidden shadow-lg"
             >
               <img 
-                src="https://images.unsplash.com/photo-1584551882459-38fb1a138e89?ixlib=rb-4.0.3" 
+                src="https://usil-blog.s3.amazonaws.com/PROD/blog/image/shutterstock_168633974.jpg" 
                 alt="Reserva Nacional de Paracas" 
                 className="w-full h-full object-cover"
               />
