@@ -138,7 +138,44 @@ const es = {
     instrucciones: 'Hemos enviado instrucciones para recuperar tu contraseña a tu correo electrónico. Por favor revisa tu bandeja de entrada.',
     volverInicio: 'Volver al inicio',
     intentarOtroCorreo: 'Intentar con otro correo'
-  }
+  },
+  // Añade esta sección a tu objeto es
+contacto: {
+  titulo: 'Contáctanos',
+  subtitulo: 'Estamos aquí para responder cualquier pregunta que tengas',
+  infoTitulo: 'Información de Contacto',
+  infoDescripcion: 'Comunícate con nosotros a través de cualquiera de estos medios. Estaremos encantados de atenderte.',
+  telefono: 'Teléfono',
+  email: 'Correo Electrónico',
+  direccion: 'Dirección',
+  horario: 'Horario de Atención',
+  redesSociales: 'Síguenos en redes sociales',
+  formTitulo: 'Envíanos un mensaje',
+  nombre: 'Nombre Completo',
+  asunto: 'Asunto',
+  mensaje: 'Mensaje',
+  sede: 'Sede',
+  sedePisco: 'Pisco',
+  sedeParacas: 'Paracas',
+  sedeSanAndres: 'San Andrés',
+  enviar: 'Enviar Mensaje',
+  enviando: 'Enviando...',
+  mensajeExito: '¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.',
+  faqTitulo: 'Preguntas Frecuentes',
+  faqDescripcion: 'Respuestas a las preguntas más comunes sobre nuestros servicios.',
+  faq1Pregunta: '¿Cuáles son los horarios de los tours?',
+  faq1Respuesta: 'Nuestros tours operan todos los días desde las 8:00 AM hasta las 5:00 PM.',
+  faq2Pregunta: '¿Cómo puedo hacer una reserva?',
+  faq2Respuesta: 'Puedes hacer una reserva directamente en nuestro sitio web, por teléfono o visitando nuestras oficinas.',
+  faq3Pregunta: '¿Qué pasa si quiero cancelar mi reserva?',
+  faq3Respuesta: 'Las cancelaciones realizadas con más de 48 horas de anticipación reciben un reembolso completo.',
+  faq4Pregunta: '¿Los tours incluyen transporte desde el hotel?',
+  faq4Respuesta: 'Sí, todos nuestros tours incluyen recogida y retorno a hoteles en el centro de la ciudad.',
+  faq5Pregunta: '¿Qué debo llevar para los tours marítimos?',
+  faq5Respuesta: 'Recomendamos traer protector solar, gafas de sol, una gorra o sombrero, y ropa ligera.',
+  masPreguntas: '¿Tienes más preguntas?',
+  verMasPreguntas: 'Ver todas las preguntas frecuentes'
+},
 };
 
 export default es;

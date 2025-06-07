@@ -1,4 +1,3 @@
- 
 import { useTranslation } from 'react-i18next';
 
 interface SelectorPasajeProps {
@@ -25,31 +24,37 @@ const SelectorPasaje = ({ tipo, precio, cantidad, setCantidad, min, max }: Selec
     }
   };
   
+  const getBgColor = () => {
+    return tipo === 'adulto' 
+      ? 'bg-blue-50/70' 
+      : 'bg-cyan-50/70';
+  };
+  
   return (
-    <div className="flex items-center justify-between bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3">
+    <div className={`flex items-center justify-between ${getBgColor()} border border-sky-100 rounded-lg p-3 shadow-sm`}>
       <div>
-        <h4 className="font-medium text-gray-800 dark:text-white">
+        <h4 className="font-medium text-black">
           {tipo === 'adulto' ? t('tour.adulto') : t('tour.nino')}
         </h4>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
+        <p className="text-sm text-blue-700">
           {tipo === 'adulto' 
             ? t('tour.adultoDescripcion') 
             : t('tour.ninoDescripcion')}
         </p>
-        <p className="text-primary-600 dark:text-primary-400 font-medium mt-1">
+        <p className="text-teal-600 font-medium mt-1">
           ${precio.toFixed(2)}
         </p>
       </div>
       
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center space-x-2 bg-white/80 p-2 rounded-lg">
         <button
           type="button"
           onClick={decrementar}
           disabled={cantidad <= min}
           className={`w-8 h-8 flex items-center justify-center rounded-full border ${
             cantidad <= min
-              ? 'border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-600 cursor-not-allowed'
-              : 'border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+              ? 'border-gray-200 text-gray-400 cursor-not-allowed'
+              : 'border-teal-200 text-teal-600 hover:bg-teal-50'
           }`}
           aria-label={t('general.decrementar')}
         >
@@ -58,7 +63,7 @@ const SelectorPasaje = ({ tipo, precio, cantidad, setCantidad, min, max }: Selec
           </svg>
         </button>
         
-        <span className="text-gray-800 dark:text-white w-5 text-center">
+        <span className="text-black w-5 text-center font-medium">
           {cantidad}
         </span>
         
@@ -68,8 +73,8 @@ const SelectorPasaje = ({ tipo, precio, cantidad, setCantidad, min, max }: Selec
           disabled={cantidad >= max}
           className={`w-8 h-8 flex items-center justify-center rounded-full border ${
             cantidad >= max
-              ? 'border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-600 cursor-not-allowed'
-              : 'border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+              ? 'border-gray-200 text-gray-400 cursor-not-allowed'
+              : 'border-teal-200 text-teal-600 hover:bg-teal-50'
           }`}
           aria-label={t('general.incrementar')}
         >

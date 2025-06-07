@@ -41,40 +41,41 @@ const item = {
       {/* Hero Section */}
       <Hero />
       
-      {/* Tours Destacados */}
-      <Seccion className="py-16">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={container}
-          className="text-center mb-12"
-        >
-          <motion.h2 variants={item} className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-            {t('inicio.toursDestacados')}
-          </motion.h2>
-          <motion.p variants={item} className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
-            {t('inicio.toursDestacadosDescripcion')}
-          </motion.p>
-        </motion.div>
-        
-        <ToursDestacados />
-        
-        <motion.div 
-          variants={item}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="text-center mt-10"
-        >
-          <Link 
-            to="/tours" 
-            className="inline-block px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-full transition-colors duration-300 shadow-md hover:shadow-lg"
-          >
-            {t('inicio.verTodosTours')}
-          </Link>
-        </motion.div>
-      </Seccion>
+     {/* Tours Destacados */}
+<Seccion className="py-16">
+  <motion.div
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.3 }}
+    variants={container}
+    className="text-center mb-12"
+  >
+    <motion.h2 variants={item} className="text-3xl md:text-4xl font-bold text-black dark:text-black mb-4">
+      {t('inicio.toursDestacados')}
+    </motion.h2>
+    <motion.p variants={item} className="max-w-2xl mx-auto text-black dark:text-black">
+      {t('inicio.toursDestacadosDescripcion')}
+    </motion.p>
+  </motion.div>
+  
+  <ToursDestacados />
+  
+  <motion.div 
+    variants={item}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true }}
+    className="text-center mt-10"
+  >
+    <Link 
+      to="/tours" 
+      className="inline-block px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-full transition-colors duration-300 shadow-md hover:shadow-lg"
+    >
+      {t('inicio.verTodosTours')}
+    </Link>
+  </motion.div>
+</Seccion>
+
       
       {/* Sección Por qué elegirnos */}
       <Seccion className="py-16 bg-gray-50 dark:bg-gray-900">
@@ -132,25 +133,26 @@ const item = {
         </motion.div>
       </Seccion>
       
-      {/* Testimonios */}
-      <Seccion className="py-16">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={container}
-          className="text-center mb-12"
-        >
-          <motion.h2 variants={item} className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-            {t('inicio.testimonios')}
-          </motion.h2>
-          <motion.p variants={item} className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
-            {t('inicio.testimoniosDescripcion')}
-          </motion.p>
-        </motion.div>
-        
-        <Testimonios />
-      </Seccion>
+{/* Testimonios */}
+<Seccion className="py-16">
+  <motion.div
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.3 }}
+    variants={container}
+    className="text-center mb-12"
+  >
+    <motion.h2 variants={item} className="text-3xl md:text-4xl font-bold text-black dark:text-black mb-4">
+      {t('inicio.testimonios')}
+    </motion.h2>
+    <motion.p variants={item} className="max-w-2xl mx-auto text-black dark:text-black">
+      {t('inicio.testimoniosDescripcion')}
+    </motion.p>
+  </motion.div>
+  
+  <Testimonios />
+</Seccion>
+
       
       {/* Socios */}
       <Seccion className="py-16 bg-gray-50 dark:bg-gray-900">

@@ -1,29 +1,33 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
+// Importa tus slices existentes y sus tipos
+import tipoTourReducer, { TipoTourState } from './slices/sliceTipoTour';
+import galeriaTourReducer, { GaleriaTourState } from './slices/sliceGaleriaTour';
+// Importa los demás reducers que ya tengas en tu aplicación
+import tipoPasajeReducer, { TipoPasajeState } from "./slices/sliceTipoPasaje";
+import paquetePasajesReducer, { PaquetePasajesState } from "./slices/slicePaquetePasajes";
+import instanciaTourReducer, { InstanciaTourState } from "./slices/sliceInstanciaTour";
+// Define la estructura del estado completo de la aplicación
+export interface AppState {
+  // Otros estados que ya tengas en tu aplicación
+  tipoTour: TipoTourState;
+  galeriaTour: GaleriaTourState;
+  tipoPasaje: TipoPasajeState;
+  paquetePasajes: PaquetePasajesState;
+  instanciaTour: InstanciaTourState;
+}
 
-// Importar reducers
-import lenguajeReducer from './slices/sliceLenguaje';
-import carritoReducer from './slices/sliceCarrito';
-import tourReducer from './slices/sliceTour';
-import sedeReducer from './slices/sliceSede';
-
-// Combinar reducers
-const rootReducer = combineReducers({
-  lenguaje: lenguajeReducer,
-  carrito: carritoReducer,
-  tour: tourReducer,
-  sede: sedeReducer
-});
-
-// Configurar store
 export const store = configureStore({
-  reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false
-    })
+  reducer: {
+    // Tus reducers existentes
+    tipoTour: tipoTourReducer,
+    galeriaTour: galeriaTourReducer,
+  tipoPasaje: tipoPasajeReducer,
+    paquetePasajes: paquetePasajesReducer,
+    instanciaTour: instanciaTourReducer,
+  },
 });
 
-// Tipos para TypeScript
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
+

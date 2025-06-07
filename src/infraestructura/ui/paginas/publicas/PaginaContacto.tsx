@@ -1,4 +1,3 @@
- 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -62,7 +61,7 @@ const PaginaContacto = () => {
       titulo: t('contacto.telefono'),
       texto: "+51 956 789 123",
       icono: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
         </svg>
       )
@@ -71,7 +70,7 @@ const PaginaContacto = () => {
       titulo: t('contacto.email'),
       texto: "info@oceantours.com",
       icono: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       )
@@ -80,7 +79,7 @@ const PaginaContacto = () => {
       titulo: t('contacto.direccion'),
       texto: "Av. San Martín 123, Pisco, Perú",
       icono: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
@@ -90,7 +89,7 @@ const PaginaContacto = () => {
       titulo: t('contacto.horario'),
       texto: "Lun - Dom: 8:00 AM - 8:00 PM",
       icono: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       )
@@ -113,16 +112,16 @@ const PaginaContacto = () => {
   return (
     <div>
       {/* Cabecera */}
-      <div className="relative h-64 md:h-80 bg-gray-900 overflow-hidden">
+      <div className="relative h-64 md:h-80 overflow-hidden bg-gradient-to-r from-blue-600 to-teal-500">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ 
             backgroundImage: "url('https://images.unsplash.com/photo-1626155893184-aca9e42e8fb3')",
-            opacity: 0.4
+            opacity: 0.3
           }}
         />
         
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 to-gray-900/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-teal-800/30 backdrop-blur-sm" />
         
         <div className="relative h-full flex items-center justify-center">
           <motion.div
@@ -131,15 +130,15 @@ const PaginaContacto = () => {
             transition={{ duration: 0.8 }}
             className="text-center text-white px-4"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{t('contacto.titulo')}</h1>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-shadow-lg">{t('contacto.titulo')}</h1>
+            <p className="text-lg text-white max-w-2xl mx-auto text-shadow">
               {t('contacto.subtitulo')}
             </p>
           </motion.div>
         </div>
       </div>
       
-      <Seccion className="py-16">
+      <Seccion className="py-16 bg-gradient-to-b from-blue-50 via-sky-50 to-cyan-50">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Información de contacto */}
           <motion.div
@@ -147,12 +146,13 @@ const PaginaContacto = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-sky-100"
           >
-            <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
+            <h2 className="text-3xl font-bold text-black mb-6">
               {t('contacto.infoTitulo')}
             </h2>
             
-            <p className="text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-black mb-8">
               {t('contacto.infoDescripcion')}
             </p>
             
@@ -165,16 +165,16 @@ const PaginaContacto = () => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-start"
+                  className="flex items-start bg-blue-50/70 p-4 rounded-lg"
                 >
-                  <div className="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full mr-4">
+                  <div className="bg-teal-100 p-3 rounded-full mr-4">
                     {item.icono}
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 dark:text-white">
+                    <h3 className="font-semibold text-black">
                       {item.titulo}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300">
+                    <p className="text-blue-800">
                       {item.texto}
                     </p>
                   </div>
@@ -183,15 +183,15 @@ const PaginaContacto = () => {
             </div>
             
             {/* Redes sociales */}
-            <div className="mt-10">
-              <h3 className="font-semibold text-gray-800 dark:text-white mb-4">
+            <div className="mt-10 bg-cyan-50/70 p-4 rounded-lg">
+              <h3 className="font-semibold text-black mb-4">
                 {t('contacto.redesSociales')}
               </h3>
               
               <div className="flex space-x-4">
                 <a 
                   href="#"
-                  className="bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900/30 text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 p-3 rounded-full transition-colors duration-300"
+                  className="bg-white hover:bg-teal-50 text-teal-600 hover:text-teal-700 p-3 rounded-full transition-colors duration-300 shadow-sm"
                   aria-label="Facebook"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -200,7 +200,7 @@ const PaginaContacto = () => {
                 </a>
                 <a 
                   href="#"
-                  className="bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900/30 text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 p-3 rounded-full transition-colors duration-300"
+                  className="bg-white hover:bg-teal-50 text-teal-600 hover:text-teal-700 p-3 rounded-full transition-colors duration-300 shadow-sm"
                   aria-label="Twitter"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -209,7 +209,7 @@ const PaginaContacto = () => {
                 </a>
                 <a 
                   href="#"
-                  className="bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900/30 text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 p-3 rounded-full transition-colors duration-300"
+                  className="bg-white hover:bg-teal-50 text-teal-600 hover:text-teal-700 p-3 rounded-full transition-colors duration-300 shadow-sm"
                   aria-label="Instagram"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -218,7 +218,7 @@ const PaginaContacto = () => {
                 </a>
                 <a 
                   href="#"
-                  className="bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900/30 text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 p-3 rounded-full transition-colors duration-300"
+                  className="bg-white hover:bg-teal-50 text-teal-600 hover:text-teal-700 p-3 rounded-full transition-colors duration-300 shadow-sm"
                   aria-label="LinkedIn"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -230,7 +230,7 @@ const PaginaContacto = () => {
             
             {/* Mapa */}
             <div className="mt-10">
-              <div className="rounded-xl overflow-hidden shadow-md h-64">
+              <div className="rounded-xl overflow-hidden shadow-md h-64 border border-sky-100">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15392.706144255843!2d-76.21411745000001!3d-13.708231050000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9110258c2fed8f15%3A0xa0ca1bff7a732fd0!2sPisco%2C%20Peru!5e0!3m2!1sen!2sus!4v1675125202065!5m2!1sen!2sus" 
                   width="100%" 
@@ -252,14 +252,14 @@ const PaginaContacto = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+            <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-sky-100">
+              <h2 className="text-2xl font-bold text-black mb-6">
                 {t('contacto.formTitulo')}
               </h2>
               
               {/* Mensajes de éxito/error */}
               {enviado && (
-                <div className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 p-4 rounded-lg mb-6">
+                <div className="bg-green-100 text-green-700 p-4 rounded-lg mb-6">
                   <div className="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -270,7 +270,7 @@ const PaginaContacto = () => {
               )}
               
               {error && (
-                <div className="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 p-4 rounded-lg mb-6">
+                <div className="bg-red-100 text-red-700 p-4 rounded-lg mb-6">
                   <div className="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -281,8 +281,8 @@ const PaginaContacto = () => {
               )}
               
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <div className="bg-blue-50/70 p-4 rounded-lg">
+                  <label htmlFor="nombre" className="block text-sm font-medium text-black mb-1">
                     {t('contacto.nombre')} *
                   </label>
                   <input
@@ -292,13 +292,13 @@ const PaginaContacto = () => {
                     value={formData.nombre}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-gray-800 dark:text-white"
+                    className="w-full px-4 py-2 border border-sky-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black"
                   />
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <div className="bg-cyan-50/70 p-4 rounded-lg">
+                    <label htmlFor="email" className="block text-sm font-medium text-black mb-1">
                       {t('contacto.email')} *
                     </label>
                     <input
@@ -308,12 +308,12 @@ const PaginaContacto = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-gray-800 dark:text-white"
+                      className="w-full px-4 py-2 border border-sky-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black"
                     />
                   </div>
                   
-                  <div>
-                    <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <div className="bg-teal-50/70 p-4 rounded-lg">
+                    <label htmlFor="telefono" className="block text-sm font-medium text-black mb-1">
                       {t('contacto.telefono')}
                     </label>
                     <input
@@ -322,13 +322,13 @@ const PaginaContacto = () => {
                       name="telefono"
                       value={formData.telefono}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-gray-800 dark:text-white"
+                      className="w-full px-4 py-2 border border-sky-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black"
                     />
                   </div>
                 </div>
                 
-                <div>
-                  <label htmlFor="sede" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <div className="bg-sky-50/70 p-4 rounded-lg">
+                  <label htmlFor="sede" className="block text-sm font-medium text-black mb-1">
                     {t('contacto.sede')}
                   </label>
                   <select
@@ -336,7 +336,7 @@ const PaginaContacto = () => {
                     name="sede"
                     value={formData.sede}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-gray-800 dark:text-white"
+                    className="w-full px-4 py-2 border border-sky-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black"
                   >
                     <option value="pisco">{t('contacto.sedePisco')}</option>
                     <option value="paracas">{t('contacto.sedeParacas')}</option>
@@ -344,8 +344,8 @@ const PaginaContacto = () => {
                   </select>
                 </div>
                 
-                <div>
-                  <label htmlFor="asunto" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <div className="bg-blue-50/70 p-4 rounded-lg">
+                  <label htmlFor="asunto" className="block text-sm font-medium text-black mb-1">
                     {t('contacto.asunto')} *
                   </label>
                   <input
@@ -355,12 +355,12 @@ const PaginaContacto = () => {
                     value={formData.asunto}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-gray-800 dark:text-white"
+                    className="w-full px-4 py-2 border border-sky-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black"
                   />
                 </div>
                 
-                <div>
-                  <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <div className="bg-cyan-50/70 p-4 rounded-lg">
+                  <label htmlFor="mensaje" className="block text-sm font-medium text-black mb-1">
                     {t('contacto.mensaje')} *
                   </label>
                   <textarea
@@ -370,14 +370,14 @@ const PaginaContacto = () => {
                     onChange={handleChange}
                     rows={5}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-gray-800 dark:text-white resize-none"
+                    className="w-full px-4 py-2 border border-sky-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black resize-none"
                   ></textarea>
                 </div>
                 
                 <button
                   type="submit"
                   disabled={enviando}
-                  className={`w-full py-3 px-4 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition-colors duration-300 ${
+                  className={`w-full py-3 px-4 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-lg transition-colors duration-300 shadow-md ${
                     enviando ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                 >
@@ -398,7 +398,7 @@ const PaginaContacto = () => {
       </Seccion>
       
       {/* Preguntas frecuentes */}
-      <Seccion className="py-16 bg-gray-50 dark:bg-gray-900">
+      <Seccion className="py-16 bg-gradient-to-b from-sky-50 to-white">
         <motion.div
           variants={fadeIn}
           initial="hidden"
@@ -406,10 +406,10 @@ const PaginaContacto = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-3xl font-bold text-black mb-4">
             {t('contacto.faqTitulo')}
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-black max-w-2xl mx-auto">
             {t('contacto.faqDescripcion')}
           </p>
         </motion.div>
@@ -424,20 +424,20 @@ const PaginaContacto = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+                className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md overflow-hidden border border-sky-100"
               >
                 <details className="group">
-                  <summary className="flex items-center justify-between px-6 py-4 cursor-pointer focus:outline-none">
-                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+                  <summary className="flex items-center justify-between px-6 py-4 cursor-pointer focus:outline-none bg-gradient-to-r from-blue-50 to-cyan-50">
+                    <h3 className="text-lg font-semibold text-black">
                       {t(`contacto.faq${index + 1}Pregunta`)}
                     </h3>
-                    <span className="ml-6 flex-shrink-0 text-gray-500 dark:text-gray-400 group-open:rotate-180 transition-transform duration-300">
+                    <span className="ml-6 flex-shrink-0 text-teal-600 group-open:rotate-180 transition-transform duration-300">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
                     </span>
                   </summary>
-                  <div className="px-6 pb-4 text-gray-600 dark:text-gray-300">
+                  <div className="px-6 pb-4 text-black">
                     <p>{t(`contacto.faq${index + 1}Respuesta`)}</p>
                   </div>
                 </details>
@@ -453,12 +453,12 @@ const PaginaContacto = () => {
             transition={{ delay: 0.6 }}
             className="text-center mt-8"
           >
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
+            <p className="text-black mb-4">
               {t('contacto.masPreguntas')}
             </p>
             <a
               href="/preguntas-frecuentes"
-              className="inline-flex items-center text-primary-500 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300 font-medium"
+              className="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium"
             >
               {t('contacto.verMasPreguntas')}
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">

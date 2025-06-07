@@ -138,7 +138,44 @@ const en = {
     instrucciones: 'We have sent instructions to recover your password to your email address. Please check your inbox.',
     volverInicio: 'Back to home',
     intentarOtroCorreo: 'Try with another email'
-  }
+  },
+  // Añade esta sección a tu objeto en
+contacto: {
+  titulo: 'Contact Us',
+  subtitulo: 'We are here to answer any questions you may have',
+  infoTitulo: 'Contact Information',
+  infoDescripcion: 'Get in touch with us through any of these means. We will be happy to assist you.',
+  telefono: 'Phone',
+  email: 'Email',
+  direccion: 'Address',
+  horario: 'Business Hours',
+  redesSociales: 'Follow us on social media',
+  formTitulo: 'Send us a message',
+  nombre: 'Full Name',
+  asunto: 'Subject',
+  mensaje: 'Message',
+  sede: 'Location',
+  sedePisco: 'Pisco',
+  sedeParacas: 'Paracas',
+  sedeSanAndres: 'San Andrés',
+  enviar: 'Send Message',
+  enviando: 'Sending...',
+  mensajeExito: 'Message sent successfully! We will contact you soon.',
+  faqTitulo: 'Frequently Asked Questions',
+  faqDescripcion: 'Answers to the most common questions about our services.',
+  faq1Pregunta: 'What are the tour hours?',
+  faq1Respuesta: 'Our tours operate daily from 8:00 AM to 5:00 PM.',
+  faq2Pregunta: 'How can I make a reservation?',
+  faq2Respuesta: 'You can make a reservation directly on our website, by phone, or by visiting our offices.',
+  faq3Pregunta: 'What if I want to cancel my reservation?',
+  faq3Respuesta: 'Cancellations made more than 48 hours in advance receive a full refund.',
+  faq4Pregunta: 'Do tours include transportation from the hotel?',
+  faq4Respuesta: 'Yes, all our tours include pickup and return to hotels in the city center.',
+  faq5Pregunta: 'What should I bring for maritime tours?',
+  faq5Respuesta: 'We recommend bringing sunscreen, sunglasses, a cap or hat, and light clothing.',
+  masPreguntas: 'Do you have more questions?',
+  verMasPreguntas: 'View all frequently asked questions'
+},
 };
 
 export default en;

@@ -1,4 +1,3 @@
- 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -69,7 +68,7 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
       <svg
         key={index}
         className={`h-5 w-5 ${
-          index < calificacion ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'
+          index < calificacion ? 'text-yellow-400' : 'text-gray-300'
         }`}
         fill="currentColor"
         viewBox="0 0 20 20"
@@ -125,23 +124,23 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
     return (
       <div className="animate-pulse space-y-4">
         {[...Array(3)].map((_, index) => (
-          <div key={index} className="bg-white dark:bg-gray-800 rounded-lg p-4 mb-4">
+          <div key={index} className="bg-white/80 rounded-lg p-4 mb-4 shadow-sm border border-sky-100">
             <div className="flex items-start mb-4">
-              <div className="h-12 w-12 rounded-full bg-gray-200 dark:bg-gray-700 mr-4"></div>
+              <div className="h-12 w-12 rounded-full bg-sky-100 mr-4"></div>
               <div className="flex-1">
-                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/4 mb-2"></div>
-                <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-1/5 mb-2"></div>
+                <div className="h-4 bg-sky-100 rounded w-1/4 mb-2"></div>
+                <div className="h-3 bg-sky-100 rounded w-1/5 mb-2"></div>
                 <div className="flex h-4 space-x-1 mb-2">
                   {[...Array(5)].map((_, i) => (
-                    <div key={i} className="w-4 h-4 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                    <div key={i} className="w-4 h-4 bg-sky-100 rounded-full"></div>
                   ))}
                 </div>
               </div>
             </div>
             <div className="space-y-2">
-              <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
-              <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
-              <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+              <div className="h-3 bg-sky-100 rounded w-full"></div>
+              <div className="h-3 bg-sky-100 rounded w-full"></div>
+              <div className="h-3 bg-sky-100 rounded w-3/4"></div>
             </div>
           </div>
         ))}
@@ -154,7 +153,7 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
       {/* Botón para dejar reseña */}
       <button
         onClick={() => setMostrarForm(!mostrarForm)}
-        className="mb-6 inline-flex items-center px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors duration-300"
+        className="mb-6 inline-flex items-center px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-colors duration-300 shadow-sm"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -169,16 +168,16 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-white dark:bg-gray-800 rounded-lg p-6 mb-8 shadow-md"
+          className="bg-white/90 backdrop-blur-sm rounded-lg p-6 mb-8 shadow-md border border-sky-100"
         >
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+          <h3 className="text-xl font-semibold text-black mb-4">
             {t('resenas.dejarResena')}
           </h3>
           
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <div className="bg-blue-50/70 p-4 rounded-lg">
+                <label htmlFor="nombre" className="block text-sm font-medium text-black mb-1">
                   {t('resenas.nombre')} *
                 </label>
                 <input
@@ -188,12 +187,12 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
                   value={nuevaResena.nombre}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-gray-800 dark:text-white"
+                  className="w-full px-4 py-2 border border-sky-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black"
                 />
               </div>
               
-              <div>
-                <label htmlFor="correo" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <div className="bg-cyan-50/70 p-4 rounded-lg">
+                <label htmlFor="correo" className="block text-sm font-medium text-black mb-1">
                   {t('resenas.correo')} *
                 </label>
                 <input
@@ -203,13 +202,13 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
                   value={nuevaResena.correo}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-gray-800 dark:text-white"
+                  className="w-full px-4 py-2 border border-sky-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black"
                 />
               </div>
             </div>
             
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            <div className="bg-teal-50/70 p-4 rounded-lg">
+              <label className="block text-sm font-medium text-black mb-1">
                 {t('resenas.calificacion')} *
               </label>
               <div className="flex">
@@ -223,7 +222,7 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
                   >
                     <svg
                       className={`h-8 w-8 ${
-                        valor <= nuevaResena.calificacion ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'
+                        valor <= nuevaResena.calificacion ? 'text-yellow-400' : 'text-gray-300'
                       }`}
                       fill="currentColor"
                       viewBox="0 0 20 20"
@@ -236,8 +235,8 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
               </div>
             </div>
             
-            <div>
-              <label htmlFor="comentario" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            <div className="bg-sky-50/70 p-4 rounded-lg">
+              <label htmlFor="comentario" className="block text-sm font-medium text-black mb-1">
                 {t('resenas.comentario')} *
               </label>
               <textarea
@@ -247,7 +246,7 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
                 onChange={handleInputChange}
                 required
                 rows={4}
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-gray-800 dark:text-white resize-none"
+                className="w-full px-4 py-2 border border-sky-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black resize-none"
               ></textarea>
             </div>
             
@@ -255,13 +254,13 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
               <button
                 type="button"
                 onClick={() => setMostrarForm(false)}
-                className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-300"
+                className="px-4 py-2 border border-sky-200 text-blue-700 hover:bg-sky-50 rounded-lg transition-colors duration-300"
               >
                 {t('resenas.cancelar')}
               </button>
               <button
                 type="submit"
-                className="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors duration-300"
+                className="px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-colors duration-300 shadow-sm"
               >
                 {t('resenas.enviar')}
               </button>
@@ -278,7 +277,7 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md"
+            className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-md border border-sky-100"
           >
             <div className="flex items-start mb-4">
               <img
@@ -287,10 +286,10 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
                 className="w-12 h-12 rounded-full object-cover mr-4"
               />
               <div>
-                <h4 className="font-semibold text-gray-800 dark:text-white">
+                <h4 className="font-semibold text-black">
                   {resena.nombre}
                 </h4>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-blue-700">
                   {new Date(resena.fecha).toLocaleDateString()}
                 </p>
                 <div className="flex mt-1">
@@ -298,7 +297,7 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
                 </div>
               </div>
             </div>
-            <p className="text-gray-700 dark:text-gray-300">
+            <p className="text-black">
               {resena.comentario}
             </p>
           </motion.div>
@@ -309,12 +308,12 @@ const ResenasTour = ({ idTour }: ResenasTourProps) => {
       {resenas.length > 5 && (
         <div className="flex justify-center mt-8">
           <nav className="flex items-center space-x-2">
-            <button className="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-md text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+            <button className="px-3 py-1 border border-sky-200 rounded-md text-blue-700 hover:bg-sky-50 transition-colors duration-200">
               {t('general.anterior')}
             </button>
-            <button className="px-3 py-1 bg-primary-500 text-white rounded-md">1</button>
-            <button className="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-md text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">2</button>
-            <button className="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-md text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+            <button className="px-3 py-1 bg-teal-500 text-white rounded-md">1</button>
+            <button className="px-3 py-1 border border-sky-200 rounded-md text-blue-700 hover:bg-sky-50 transition-colors duration-200">2</button>
+            <button className="px-3 py-1 border border-sky-200 rounded-md text-blue-700 hover:bg-sky-50 transition-colors duration-200">
               {t('general.siguiente')}
             </button>
           </nav>

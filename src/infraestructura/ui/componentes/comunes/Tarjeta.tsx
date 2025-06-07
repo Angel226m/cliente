@@ -1,86 +1,132 @@
- 
 import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
-interface TarjetaProps {
-  children: ReactNode;
-  className?: string;
-  hover?: boolean;
-  onClick?: () => void;
-  animada?: boolean;
-  padding?: 'none' | 'sm' | 'md' | 'lg';
-  elevacion?: 'none' | 'sm' | 'md' | 'lg';
-  borde?: boolean;
-  redondeado?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
+// Interfaces
+interface Tour {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  precio: number;
+  duracion: number;
+  calificacion: number;
+  imagen: string;
+  ubicacion: string;
 }
 
-const Tarjeta = ({
-  children,
-  className = '',
-  hover = false,
-  onClick,
-  animada = false,
-  padding = 'md',
-  elevacion = 'md',
-  borde = false,
-  redondeado = 'lg'
-}: TarjetaProps) => {
-  // Mapas de clases según las propiedades
-  const paddingClases = {
-    none: '',
-    sm: 'p-3',
-    md: 'p-5',
-    lg: 'p-8'
-  };
+interface TarjetaTourProps {
+  tour: Tour;
+}
 
-  const elevacionClases = {
-    none: '',
-    sm: 'shadow-sm',
-    md: 'shadow',
-    lg: 'shadow-lg'
-  };
-
-  const redondeadoClases = {
-    sm: 'rounded-sm',
-    md: 'rounded-md',
-    lg: 'rounded-lg',
-    xl: 'rounded-xl',
-    '2xl': 'rounded-2xl',
-    '3xl': 'rounded-3xl'
-  };
-
-  // Construir las clases CSS
-  const claseBase = 'bg-white dark:bg-gray-800 transition-all duration-300';
-  const claseBorde = borde ? 'border border-gray-200 dark:border-gray-700' : '';
-  const claseHover = hover ? 'hover:shadow-lg hover:-translate-y-1 cursor-pointer' : '';
-  const clasesCombinadas = `${claseBase} ${paddingClases[padding]} ${elevacionClases[elevacion]} ${redondeadoClases[redondeado]} ${claseBorde} ${claseHover} ${className}`;
-
-  // Variantes para la animación
-  const variantes = {
+const TarjetaTour = ({ tour }: TarjetaTourProps) => {
+  const { t } = useTranslation();
+  
+  // Variantes para animaciones
+  const item = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    show: { opacity: 1, y: 0 }
   };
 
-  if (animada) {
-    return (
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={variantes}
-        whileHover={hover ? { y: -5, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' } : {}}
-        className={clasesCombinadas}
-        onClick={onClick}
-      >
-        {children}
-      </motion.div>
-    );
-  }
+  // Formateador de precio
+  const formatearPrecio = (precio: number) => {
+    return new Intl.NumberFormat('es-PE', {
+      style: 'currency',
+      currency: 'PEN',
+      minimumFractionDigits: 0
+    }).format(precio);
+  };
+
+  // Formateador de duración
+  const formatearDuracion = (minutos: number) => {
+    const horas = Math.floor(minutos / 60);
+    const minutosRestantes = minutos % 60;
+    
+    if (horas > 0) {
+      return `${horas}h${minutosRestantes > 0 ? ` ${minutosRestantes}min` : ''}`;
+    }
+    return `${minutosRestantes}min`;
+  };
 
   return (
-    <div className={clasesCombinadas} onClick={onClick}>
-      {children}
-    </div>
+    <motion.div 
+      variants={item}
+className="bg-gradient-to-b from-blue-50 via-sky-50 to-cyan-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
+    >
+      <Link to={`/tours/${tour.id}`} className="block overflow-hidden h-60 relative">
+        <img 
+          src={tour.imagen} 
+          alt={tour.nombre} 
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          onError={(e) => {
+            // Si la imagen falla, usar una imagen de respaldo
+            const target = e.target as HTMLImageElement;
+            target.src = 'https://via.placeholder.com/300x200?text=Sin+Imagen';
+          }}
+        />
+        {tour.ubicacion && (
+          <div className="absolute bottom-3 left-3 bg-white dark:bg-gray-900 rounded-full px-3 py-1 text-xs text-gray-700 dark:text-gray-300 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            {tour.ubicacion}
+          </div>
+        )}
+      </Link>
+
+      <div className="p-5 flex-grow flex flex-col">
+        <Link to={`/tours/${tour.id}`} className="group">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+            {tour.nombre}
+          </h3>
+        </Link>
+        
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+          {tour.descripcion}
+        </p>
+        
+        <div className="flex justify-between items-center mt-auto">
+          <div className="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <span className="ml-1 text-sm font-medium text-gray-700 dark:text-gray-300">
+              {tour.calificacion.toFixed(1)}
+            </span>
+          </div>
+          
+          <div className="text-sm text-gray-600 dark:text-gray-400 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {formatearDuracion(tour.duracion)}
+          </div>
+        </div>
+        
+        <div className="mt-4 flex items-center justify-between">
+          {tour.precio > 0 ? (
+            <div>
+              <span className="text-xs text-gray-500 dark:text-gray-400">{t('tours.desde')}</span>
+              <p className="text-lg font-bold text-primary-600 dark:text-primary-400">
+                {formatearPrecio(tour.precio)}
+              </p>
+            </div>
+          ) : (
+            <div>
+              <span className="text-xs text-gray-500 dark:text-gray-400">{t('tours.consultar')}</span>
+            </div>
+          )}
+          
+          <Link 
+            to={`/tours/${tour.id}`} 
+            className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors"
+          >
+            {t('tours.verDetalles')}
+          </Link>
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
-export default Tarjeta;
+export default TarjetaTour;
