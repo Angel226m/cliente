@@ -35,4 +35,13 @@ export const endpoints = {
     listarPorTipoTour: (idTipoTour: number) => `/paquetes-pasajes/tipo-tour/${idTipoTour}`
   },
   // ... otros endpoints existentes
+
+
+   tourProgramado: {
+    listar: "/tours-programados",
+    obtenerPorId: (id: number) => `/tours-programados/${id}`,
+    listarPorFiltros: "/tours-programados/filtrar",
+    listarDisponiblesSinDuplicados: "/tours/disponibles-sin-duplicados"
+  },
+  
 };
