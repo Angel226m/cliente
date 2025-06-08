@@ -8,10 +8,16 @@ export const endpoints = {
     listarPorSede: (idSede: number) => `/tipos-tour/sede/${idSede}`
   },
   
-  galeriaTour: {
+  /*galeriaTour: {
     listar: "/galerias",
     obtenerPorId: (id: number) => `/galerias/${id}`,
     listarPorTipoTour: (idTipoTour: number) => `/tipo-tours/${idTipoTour}/galerias` // Este endpoint sí existe en tu backend
+  },*/
+
+    galeriaTour: {
+    listar: "/galerias",
+    obtenerPorId: (id: number) => `/galerias/${id}`,
+    listarPorTipoTour: (idTipoTour: number) => `/tipo-tours/${idTipoTour}/galerias` // Verificado que coincide con el backend
   },
   instanciaTour: {
     listar: "/instancias-tour",
