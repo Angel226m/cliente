@@ -37,6 +37,7 @@
     "react-intersection-observer": "^9.16.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.0",
+    "react-toastify": "^11.0.5",
     "regenerator-runtime": "^0.14.1",
     "tailwind-scrollbar-hide": "^4.0.0",
     "tailwindcss-animate": "^1.0.7",

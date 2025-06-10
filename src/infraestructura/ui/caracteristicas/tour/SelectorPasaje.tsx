@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+/*import { useTranslation } from 'react-i18next';
 
 interface SelectorPasajeProps {
   tipo: 'adulto' | 'nino';
@@ -81,6 +81,126 @@ const SelectorPasaje = ({ tipo, precio, cantidad, setCantidad, min, max }: Selec
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
           </svg>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default SelectorPasaje;*/
+
+
+
+import { useTranslation } from 'react-i18next';
+
+interface SelectorPasajeProps {
+  tipo: string;
+  precio: number;
+  cantidad: number;
+  setCantidad: (cantidad: number) => void;
+  min: number;
+  max: number;
+  edad?: string;
+  colorScheme?: 'blue' | 'teal' | 'primary';
+}
+
+const SelectorPasaje = ({ 
+  tipo, 
+  precio, 
+  cantidad, 
+  setCantidad, 
+  min, 
+  max,
+  edad,
+  colorScheme = 'blue'
+}: SelectorPasajeProps) => {
+  const { t } = useTranslation();
+  
+  // Obtener clases de colores según el esquema seleccionado
+  const getColorClasses = () => {
+    switch (colorScheme) {
+      case 'teal':
+        return {
+          bg: 'bg-teal-50',
+          border: 'border-teal-200',
+          text: 'text-teal-800',
+          buttonBg: 'bg-teal-100',
+          buttonHover: 'hover:bg-teal-200',
+          buttonText: 'text-teal-600',
+          buttonDisabled: 'text-teal-300',
+          priceText: 'text-teal-600'
+        };
+      case 'primary':
+        return {
+          bg: 'bg-primary-50',
+          border: 'border-primary-200',
+          text: 'text-primary-800',
+          buttonBg: 'bg-primary-100',
+          buttonHover: 'hover:bg-primary-200',
+          buttonText: 'text-primary-600',
+          buttonDisabled: 'text-primary-300',
+          priceText: 'text-primary-600'
+        };
+      case 'blue':
+      default:
+        return {
+          bg: 'bg-sky-50',
+          border: 'border-sky-200',
+          text: 'text-blue-800',
+          buttonBg: 'bg-sky-100',
+          buttonHover: 'hover:bg-sky-200',
+          buttonText: 'text-blue-600',
+          buttonDisabled: 'text-blue-300',
+          priceText: 'text-blue-600'
+        };
+    }
+  };
+  
+  const colors = getColorClasses();
+  
+  const incrementar = () => {
+    if (cantidad < max) {
+      setCantidad(cantidad + 1);
+    }
+  };
+  
+  const decrementar = () => {
+    if (cantidad > min) {
+      setCantidad(cantidad - 1);
+    }
+  };
+
+  return (
+    <div className={`flex items-center justify-between p-3 ${colors.bg} border ${colors.border} rounded-lg`}>
+      <div>
+        <div className={`font-medium ${colors.text}`}>{tipo}</div>
+        {edad && (
+          <div className="text-xs text-gray-500 mt-1">{edad}</div>
+        )}
+        <div className={`text-sm font-medium ${colors.priceText}`}>${precio.toFixed(2)}</div>
+      </div>
+      
+      <div className="flex items-center space-x-2">
+        <button
+          type="button"
+          onClick={decrementar}
+          disabled={cantidad <= min}
+          className={`w-8 h-8 flex items-center justify-center rounded-full ${colors.buttonBg} ${colors.buttonHover} transition-colors`}
+          aria-label={t('general.decrementar')}
+        >
+          <span className={`${cantidad <= min ? colors.buttonDisabled : colors.buttonText}`}>-</span>
+        </button>
+        
+        <span className={`w-6 text-center ${colors.text}`}>{cantidad}</span>
+        
+        <button
+          type="button"
+          onClick={incrementar}
+          disabled={cantidad >= max}
+          className={`w-8 h-8 flex items-center justify-center rounded-full ${colors.buttonBg} ${colors.buttonHover} transition-colors`}
+          aria-label={t('general.incrementar')}
+        >
+          <span className={`${cantidad >= max ? colors.buttonDisabled : colors.buttonText}`}>+</span>
         </button>
       </div>
     </div>
