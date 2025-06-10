@@ -279,28 +279,32 @@ export class RepoClienteHttp implements RepositorioCliente {
     }
   }
 
-  async refrescarToken(refreshToken?: string): Promise<RespuestaAutenticacion> {
-    try {
-      let config = {};
-      
-      // Si se proporciona un refresh token explícitamente, lo incluimos en el cuerpo de la solicitud
-      if (refreshToken) {
-        config = {
-          data: { refresh_token: refreshToken }
-        };
-      }
-      
-      const response = await clientePublico.post(endpoints.cliente.refrescarToken, config);
-      
-      if (response.data && response.data.success) {
-        return response.data.data;
-      }
-      throw new Error(response.data.message || "Error al refrescar token");
-    } catch (error: any) {
-      console.error("Error al refrescar token:", error);
-      throw error;
+// En tu función refrescarToken:
+
+async refrescarToken(refreshToken?: string): Promise<RespuestaAutenticacion> {
+  try {
+    console.log("Intentando refrescar token...");
+    
+    // Si se proporciona un refresh token explícitamente, lo enviamos en el cuerpo
+    // Si no, el servidor usará la cookie refresh_token
+    const requestData = refreshToken ? { refresh_token: refreshToken } : {};
+    
+    const response = await clientePublico.post(
+      endpoints.cliente.refrescarToken, 
+      requestData
+    );
+    
+    if (response.data && response.data.success) {
+      console.log("Token refrescado exitosamente");
+      return response.data.data;
     }
+    
+    throw new Error(response.data.message || "Error al refrescar token");
+  } catch (error: any) {
+    console.error("Error al refrescar token:", error);
+    throw error;
   }
+}
 
   async cerrarSesion(): Promise<void> {
     try {
