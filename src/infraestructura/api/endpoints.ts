@@ -55,10 +55,34 @@ export const endpoints = {
     refrescarToken: "/clientes/refresh",
     cerrarSesion: "/clientes/logout",
     obtenerPorId: (id: number) => `/clientes/${id}`,
+    actualizarDatosEmpresa: (id: number) => `/api/v1/cliente/${id}/datos-empresa`,
     actualizar: (id: number) => `/clientes/${id}`,
     cambiarContrasena: (id: number) => `/clientes/${id}/cambiar-contrasena`,       
     obtenerPerfil: "/cliente/mi-perfil"
 
   },
+   // Nuevo endpoint para reservas
+  reserva: {
+    listar: "/reservas",
+    obtenerPorId: (id: number) => `/reservas/${id}`,
+    crear: "/reservas",
+    actualizar: (id: number) => `/reservas/${id}`,
+    eliminar: (id: number) => `/reservas/${id}`,
+    cambiarEstado: (id: number) => `/reservas/${id}/estado`,
+    listarPorCliente: (idCliente: number) => `/reservas/cliente/${idCliente}`,
+    listarPorInstancia: (idInstancia: number) => `/reservas/instancia/${idInstancia}`,
+    listarPorFecha: (fecha: string) => `/reservas/fecha/${fecha}`,
+    listarPorEstado: (estado: string) => `/reservas/estado/${estado}`,
+    listarMisReservas: "/cliente/mis-reservas",
+    cancelarReserva: (id: number) => `/cliente/mis-reservas/${id}/cancelar`,
+    pagarReserva: (id: number) => `/cliente/mis-reservas/${id}/pagar`,
+  },
+  
+  // Nuevo endpoint para Mercado Pago
+  mercadoPago: {
+    reservar: "/mercadopago/reservar",
+    confirmarPago: "/reservas/confirmar-pago",
+    webhook: "/webhook/mercadopago"
+  }
   
 };
